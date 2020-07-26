@@ -1,0 +1,6 @@
+module Pods_rnYoutubeClone_rnYoutubeCloneTests {
+  umbrella header "Pods-rnYoutubeClone-rnYoutubeCloneTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
