@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { colors } from '../utils/constants';
 
 const Header = () => {
   return (
@@ -13,18 +15,18 @@ const Header = () => {
           name="youtube"
           size={32}
           color="red"
-          style={{marginLeft: 20}}
+          style={{ marginLeft: 20 }}
         />
         <Text style={styles.text}>Youtube</Text>
       </View>
       <View>
         <View style={styles.backContainer}>
-          <FontAwesome name="video-camera" size={32} color="#212121" />
-          <Ionicons name="search-outline" size={32} color="#212121" />
+          <FontAwesome name="video-camera" size={32} color={colors.black1} />
+          <Ionicons name="search-outline" size={32} color={colors.black1} />
           <MaterialCommunityIcons
             name="account-circle"
             size={32}
-            color="#212121"
+            color={colors.black1}
           />
         </View>
       </View>

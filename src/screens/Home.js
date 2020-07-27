@@ -1,13 +1,22 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import React, { Component } from 'react';
+import { ScrollView, SafeAreaView } from 'react-native';
 import Header from '../components/Header';
+import Card from '../components/Card';
 
 class Home extends Component {
   render() {
     return (
-      <View>
+      <SafeAreaView>
         <Header />
-      </View>
+        <ScrollView>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
