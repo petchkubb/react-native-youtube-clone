@@ -4,15 +4,31 @@ import {
   StyleSheet,
   TextInput,
   SafeAreaView,
-  ScrollView,
+  FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MiniCard from '../components/MiniCard';
 
 import { colors } from '../utils/constants';
 
+//https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=song&type=vedio&key=API_KEY
+
 const SearchScreen = () => {
   const [value, setValue] = useState('');
+  const [minicard, setMinicard] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const fetchData = () => {
+    setLoading(true);
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${value}&type=vedio&key=${process.env.API_KEY}`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMinicard(data.items);
+        setLoading(false);
+      });
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -23,18 +39,28 @@ const SearchScreen = () => {
           value={value}
           style={styles.textInput}
         />
-        <Ionicons name="md-send" size={32} />
+        <Ionicons name="md-send" size={32} onPress={() => fetchData()} />
       </View>
-      <ScrollView>
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-      </ScrollView>
+      {loading ? (
+        <ActivityIndicator
+          size={'large'}
+          color="red"
+          style={{ marginTop: 10 }}
+        />
+      ) : null}
+      <FlatList
+        data={minicard}
+        keyExtractor={(item) => item.id.videoId}
+        renderItem={({ item }) => {
+          return (
+            <MiniCard
+              vedioId={item.id.videoId}
+              title={item.snippet.title}
+              channel={item.snippet.channelTitle}
+            />
+          );
+        }}
+      />
     </SafeAreaView>
   );
 };

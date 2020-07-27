@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet, Image, Text, Dimensions } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const WIDTH = Dimensions.get('screen').width;
 
-const MiniCard = () => {
+const MiniCard = ({ vedioId, channel, title }) => {
   return (
     <View style={styles.root}>
       <Image
         source={{
-          uri:
-            'https://images.unsplash.com/photo-1504660069764-2b37e279874a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+          uri: `https://i.ytimg.com/vi/${vedioId}/hqdefault.jpg`,
         }}
         style={styles.image}
       />
@@ -19,10 +17,9 @@ const MiniCard = () => {
           style={{ fontSize: 17, width: WIDTH / 2 }}
           ellipsizeMode="tail"
           numberOfLines={3}>
-          This is youtube vedio This is youtube vedio This is youtube vedio This
-          is youtube vedio This is youtube vedio
+          {title}
         </Text>
-        <Text style={{ fontSize: 12 }}>reacat native youtube clone</Text>
+        <Text style={{ fontSize: 12 }}>{channel}</Text>
       </View>
     </View>
   );
