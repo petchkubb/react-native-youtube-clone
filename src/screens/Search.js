@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MiniCard from '../components/MiniCard';
-
 import { colors } from '../utils/constants';
 
+import Config from 'react-native-config';
 //https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=song&type=vedio&key=API_KEY
 
 const SearchScreen = () => {
@@ -21,7 +21,7 @@ const SearchScreen = () => {
   const fetchData = () => {
     setLoading(true);
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${value}&type=vedio&key=${process.env.API_KEY}`,
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${value}&type=vedio&key=${Config.API_KEY}`,
     )
       .then((res) => res.json())
       .then((data) => {

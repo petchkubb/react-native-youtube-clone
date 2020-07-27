@@ -1,2 +1,5 @@
 node_modules
 .env
+
+# react-native-config codegen
+ios/tmp.xcconfig

@@ -59,6 +59,7 @@
 		96AEB8EF080C334810F6F76A /* Pods-rnYoutubeClone-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnYoutubeClone-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-rnYoutubeClone-tvOSTests/Pods-rnYoutubeClone-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D488932327C0B9D9E55DE25 /* libPods-rnYoutubeClone-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnYoutubeClone-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A196880A24201A1265D8A6B5 /* Pods-rnYoutubeClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnYoutubeClone.debug.xcconfig"; path = "Target Support Files/Pods-rnYoutubeClone/Pods-rnYoutubeClone.debug.xcconfig"; sourceTree = "<group>"; };
+		B2AF6D7F24CEC7DD00E8FCB7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		C18828B186E00571719E5F87 /* Pods-rnYoutubeClone-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnYoutubeClone-tvOS.release.xcconfig"; path = "Target Support Files/Pods-rnYoutubeClone-tvOS/Pods-rnYoutubeClone-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C5D7296840A025987E000CFD /* libPods-rnYoutubeClone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnYoutubeClone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62A2FC7D99995DE7D042622 /* Pods-rnYoutubeClone-rnYoutubeCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnYoutubeClone-rnYoutubeCloneTests.debug.xcconfig"; path = "Target Support Files/Pods-rnYoutubeClone-rnYoutubeCloneTests/Pods-rnYoutubeClone-rnYoutubeCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +162,6 @@
 				96AEB8EF080C334810F6F76A /* Pods-rnYoutubeClone-tvOSTests.debug.xcconfig */,
 				D3AF54222714A886CC62E9E0 /* Pods-rnYoutubeClone-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,6 +175,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B2AF6D7F24CEC7DD00E8FCB7 /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* rnYoutubeClone */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* rnYoutubeCloneTests */,
@@ -869,6 +870,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2AF6D7F24CEC7DD00E8FCB7 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
