@@ -94,7 +94,8 @@ export function Navigation() {
 }
 
 // eslint-disable-next-line react/display-name
-export default () => {
+// eslint-disable-next-line no-undef
+export default App = () => {
   return (
     <Provider store={store}>
       <Navigation />
