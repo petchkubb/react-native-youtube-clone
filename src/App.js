@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from './screens/Home';
 import Search from './screens/Search';
-import VedioPlayer from './screens/VedioPlayer';
+import VideoPlayer from './screens/VideoPlayer';
 import Explore from './screens/Explore';
 import Subscribe from './screens/Subscribe';
 
@@ -56,7 +56,7 @@ export default function App() {
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="rootHome" component={RootHome} />
           <Stack.Screen name="search" component={Search} />
-          <Stack.Screen name="vedioPlayer" component={VedioPlayer} />
+          <Stack.Screen name="videoPlayer" component={VideoPlayer} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

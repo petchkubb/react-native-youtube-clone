@@ -1,27 +1,32 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text, Dimensions} from 'react-native';
+import {View, StyleSheet, Image, Text, Dimensions,TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 
 const WIDTH = Dimensions.get('screen').width;
 
 const MiniCard = ({vedioId, channel, title}) => {
+  const navigation = useNavigation()
+
   return (
-    <View style={styles.root}>
-      <Image
-        source={{
-          uri: `https://i.ytimg.com/vi/${vedioId}/hqdefault.jpg`,
-        }}
-        style={styles.image}
-      />
-      <View style={{paddingLeft: 7}}>
-        <Text
-          style={{fontSize: 17, width: WIDTH / 2}}
-          ellipsizeMode="tail"
-          numberOfLines={3}>
-          {title}
-        </Text>
-        <Text style={{fontSize: 12}}>{channel}</Text>
+    <TouchableOpacity onPress={()=>navigation.navigate('videoPlayer',{vedioId, channel, title})}>
+      <View style={styles.root}>
+        <Image
+          source={{
+            uri: `https://i.ytimg.com/vi/${vedioId}/hqdefault.jpg`,
+          }}
+          style={styles.image}
+        />
+        <View style={{paddingLeft: 7}}>
+          <Text
+            style={{fontSize: 17, width: WIDTH / 2}}
+            ellipsizeMode="tail"
+            numberOfLines={3}>
+            {title}
+          </Text>
+          <Text style={{fontSize: 12}}>{channel}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
