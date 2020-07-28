@@ -6,13 +6,12 @@ import { colors } from '../utils/constants';
 
 const WIDTH = Dimensions.get('screen').width;
 
-const Card = () => {
+const Card = ({vedioId, channel, title}) => {
   return (
     <View style={styles.root}>
       <Image
         source={{
-          uri:
-            'https://images.unsplash.com/photo-1504660069764-2b37e279874a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+          uri: `https://i.ytimg.com/vi/${vedioId}/hqdefault.jpg`,
         }}
         style={styles.image}
       />
@@ -27,9 +26,9 @@ const Card = () => {
             style={{ fontSize: 20, width: WIDTH - 100 }}
             ellipsizeMode="tail"
             numberOfLines={2}>
-            This is youtube vedio
+            {title}
           </Text>
-          <Text>This is youtube vedio</Text>
+          <Text>{channel}</Text>
         </View>
       </View>
     </View>

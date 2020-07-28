@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-import { ScrollView, SafeAreaView } from 'react-native';
+import {  SafeAreaView,FlatList } from 'react-native';
+import {useSelector} from 'react-redux' 
 import Header from '../components/Header';
 import Card from '../components/Card';
 
-class Home extends Component {
-  render() {
-    return (
-      <SafeAreaView>
-        <Header />
-        <ScrollView>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
+const Home = () =>{
+
+  const cardData = useSelector(state=>{
+    return state
+  })
+  return (
+    <SafeAreaView>
+      <Header />
+      <FlatList
+        data={cardData}
+        keyExtractor={(item,index)=>String(index)}
+        renderItem={({item})=>{
+          return <Card
+            vedioId={item.id.videoId}
+            title={item.snippet.title}
+            channel={item.snippet.channelTitle}
+          />
+        }}
+      />
+    </SafeAreaView>
+  );
+  
 }
 
 export default Home;
