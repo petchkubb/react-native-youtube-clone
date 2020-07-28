@@ -5,14 +5,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation,useTheme } from '@react-navigation/native';
 
-import { colors } from '../utils/constants';
 
 const Header = () => {
   const navigation = useNavigation();
+  const {color} = useTheme()
+  const mycolor = color.iconColor
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,{backgroundColor: color.headerColor}]}>
       <View style={styles.iconContainer}>
         <AntDesign
           name="youtube"
@@ -24,11 +25,11 @@ const Header = () => {
       </View>
       <View>
         <View style={styles.backContainer}>
-          <FontAwesome name="video-camera" size={32} color={colors.black1} />
+          <FontAwesome name="video-camera" size={32} color={mycolor} />
           <Ionicons
             name="search-outline"
             size={32}
-            color={colors.black1}
+            color={mycolor}
             onPress={() => {
               navigation.navigate('search');
             }}
@@ -36,7 +37,7 @@ const Header = () => {
           <MaterialCommunityIcons
             name="account-circle"
             size={32}
-            color={colors.black1}
+            color={mycolor}
           />
         </View>
       </View>
@@ -57,7 +58,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     elevation: 4,
-    backgroundColor: 'white',
     shadowOffset: {
       height: 4,
     },

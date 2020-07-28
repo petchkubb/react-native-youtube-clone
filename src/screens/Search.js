@@ -10,7 +10,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MiniCard from '../components/MiniCard';
 import { colors } from '../utils/constants';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation ,useTheme} from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Config from 'react-native-config';
@@ -18,6 +18,8 @@ import Config from 'react-native-config';
 
 const SearchScreen = () => {
   const navigation = useNavigation();
+  const {color} = useTheme()
+  const mycolor = color.iconColor
   const dispatch = useDispatch()
   // const [minicard, setMinicard] = useState([]);
   const minicard = useSelector((state) => {
@@ -41,10 +43,11 @@ const SearchScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.headerContainer}>
+      <View style={[styles.headerContainer,{backgroundColor:color.headerColor}]}>
         <Ionicons
           name="md-arrow-back"
           size={32}
+          color={mycolor} 
           onPress={() => {
             navigation.goBack();
           }}
@@ -54,7 +57,7 @@ const SearchScreen = () => {
           value={value}
           style={styles.textInput}
         />
-        <Ionicons name="md-send" size={32} onPress={() => fetchData()} />
+        <Ionicons name="md-send" size={32} color={mycolor} onPress={() => fetchData()} />
       </View>
       {loading ? (
         <ActivityIndicator
@@ -86,7 +89,6 @@ const styles = StyleSheet.create({
     padding: 5,
     justifyContent: 'space-around',
     elevation: 4,
-    backgroundColor: 'white',
     shadowOffset: {
       height: 4,
     },

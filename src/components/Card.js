@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions,TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation,useTheme} from '@react-navigation/native'
 import { colors } from '../utils/constants';
 
 const WIDTH = Dimensions.get('screen').width;
 
 const Card = ({vedioId, channel, title}) => {
   const navigation = useNavigation()
+  const {color} = useTheme()
+  const textColor = color.iconColor
   return (
     <View style={styles.root}>
       <TouchableOpacity onPress={()=>navigation.navigate('videoPlayer',{vedioId, channel, title})}>
@@ -25,12 +27,12 @@ const Card = ({vedioId, channel, title}) => {
           />
           <View style={{ marginLeft: 10 }}>
             <Text
-              style={{ fontSize: 20, width: WIDTH - 100 }}
+              style={{ fontSize: 20, width: WIDTH - 100,color:textColor }}
               ellipsizeMode="tail"
               numberOfLines={2}>
               {title}
             </Text>
-            <Text>{channel}</Text>
+            <Text style={{color:textColor}}>{channel}</Text>
           </View>
         </View>
       </TouchableOpacity>
