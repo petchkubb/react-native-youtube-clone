@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {  SafeAreaView,FlatList } from 'react-native';
 import {useSelector} from 'react-redux' 
 import Header from '../components/Header';
