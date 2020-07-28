@@ -7,7 +7,7 @@ import Card from '../components/Card';
 const Home = () =>{
 
   const cardData = useSelector(state=>{
-    return state
+    return state.data
   })
   return (
     <SafeAreaView>

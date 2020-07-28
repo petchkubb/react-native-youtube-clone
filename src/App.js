@@ -1,9 +1,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { createStore } from 'redux';
-import { reducer } from './reducers';
-import { NavigationContainer,DefaultTheme,DarkTheme,useTheme } from '@react-navigation/native';
+import reducer from './reducers';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+  useTheme,
+} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -17,23 +22,23 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const customDarkTheme = {
   ...DarkTheme,
-  color:{
+  color: {
     ...DarkTheme.colors,
-    headerColor:'#404040',
+    headerColor: '#404040',
     iconColor: 'white',
-    tabIcon:'white'
-  }
-}
+    tabIcon: 'white',
+  },
+};
 
 const customDefaultTheme = {
   ...DefaultTheme,
-  color:{
+  color: {
     ...DefaultTheme.colors,
-    headerColor:'white',
+    headerColor: 'white',
     iconColor: 'black',
-    tabIcon:'red'
-  }
-}
+    tabIcon: 'red',
+  },
+};
 
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -41,8 +46,7 @@ const Tabs = createBottomTabNavigator();
 const store = createStore(reducer);
 
 function RootHome() {
-
-  const  {color}= useTheme() 
+  const { color } = useTheme();
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({
@@ -71,10 +75,14 @@ function RootHome() {
   );
 }
 
-export default function App() {
+export function Navigation() {
+  let currentTheme = useSelector((state) => {
+    return state.theme;
+  });
   return (
     <Provider store={store}>
-      <NavigationContainer theme={customDefaultTheme}>
+      <NavigationContainer
+        theme={currentTheme ? customDarkTheme : customDefaultTheme}>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="rootHome" component={RootHome} />
           <Stack.Screen name="search" component={Search} />
@@ -84,3 +92,13 @@ export default function App() {
     </Provider>
   );
 }
+
+// eslint-disable-next-line react/display-name
+export default () => {
+  return (
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
+  );
+};
+

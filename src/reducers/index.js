@@ -1,10 +1,8 @@
-const initialState = [];
+import {combineReducers} from 'redux';
+import dataReducer from './dataReducer';
+import themeReducer from './themeReducer';
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-  case 'ADD':
-    return action.payload
-  default:
-    return state
-  }
-};
+export default combineReducers({
+  data: dataReducer,
+  theme: themeReducer,
+});

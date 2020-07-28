@@ -23,7 +23,7 @@ const SearchScreen = () => {
   const dispatch = useDispatch()
   // const [minicard, setMinicard] = useState([]);
   const minicard = useSelector((state) => {
-    return state;
+    return state.data;
   });
   const [value, setValue] = useState('');
 

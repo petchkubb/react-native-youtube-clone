@@ -15,7 +15,7 @@ const LitleCard = ({name}) => {
 
 const Explore = () => {
   const cardData = useSelector(state=>{
-    return state
+    return state.data
   })
   return (
     <SafeAreaView style={{flex: 1}}>

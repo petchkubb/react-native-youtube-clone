@@ -4,12 +4,16 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import {useDispatch,useSelector} from 'react-redux'
 import { useNavigation,useTheme } from '@react-navigation/native';
 
 
 const Header = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch()
+  const currentTheme = useSelector(state=>{
+    return state.theme
+  })
   const {color} = useTheme()
   const mycolor = color.iconColor
   return (
@@ -38,6 +42,9 @@ const Header = () => {
             name="account-circle"
             size={32}
             color={mycolor}
+            onPress={()=>{
+              dispatch({type:'CHANGE_THEME',payload:!currentTheme})
+            }}
           />
         </View>
       </View>
