@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import Home from './screens/Home';
 import Search from './screens/Search';
