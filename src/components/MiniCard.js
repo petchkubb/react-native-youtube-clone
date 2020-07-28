@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, Dimensions } from 'react-native';
+import {View, StyleSheet, Image, Text, Dimensions} from 'react-native';
 
 const WIDTH = Dimensions.get('screen').width;
 
-const MiniCard = ({ vedioId, channel, title }) => {
+const MiniCard = ({vedioId, channel, title}) => {
   return (
     <View style={styles.root}>
       <Image
@@ -12,14 +12,14 @@ const MiniCard = ({ vedioId, channel, title }) => {
         }}
         style={styles.image}
       />
-      <View style={{ paddingLeft: 7 }}>
+      <View style={{paddingLeft: 7}}>
         <Text
-          style={{ fontSize: 17, width: WIDTH / 2 }}
+          style={{fontSize: 17, width: WIDTH / 2}}
           ellipsizeMode="tail"
           numberOfLines={3}>
           {title}
         </Text>
-        <Text style={{ fontSize: 12 }}>{channel}</Text>
+        <Text style={{fontSize: 12}}>{channel}</Text>
       </View>
     </View>
   );

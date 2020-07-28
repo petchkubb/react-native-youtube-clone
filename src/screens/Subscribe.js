@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
+import Header from '../components/Header';
 
 const Subscribe = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
+      <Header />
       <Text>Subscribe</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

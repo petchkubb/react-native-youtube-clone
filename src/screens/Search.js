@@ -10,11 +10,13 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MiniCard from '../components/MiniCard';
 import { colors } from '../utils/constants';
+import { useNavigation } from '@react-navigation/native';
 
 import Config from 'react-native-config';
 //https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=song&type=vedio&key=API_KEY
 
 const SearchScreen = () => {
+  const navigation = useNavigation();
   const [value, setValue] = useState('');
   const [minicard, setMinicard] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +35,13 @@ const SearchScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.headerContainer}>
-        <Ionicons name="md-arrow-back" size={32} />
+        <Ionicons
+          name="md-arrow-back"
+          size={32}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
         <TextInput
           onChangeText={(text) => setValue(text)}
           value={value}

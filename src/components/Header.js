@@ -5,9 +5,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { useNavigation } from '@react-navigation/native';
+
 import { colors } from '../utils/constants';
 
 const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
@@ -22,7 +25,14 @@ const Header = () => {
       <View>
         <View style={styles.backContainer}>
           <FontAwesome name="video-camera" size={32} color={colors.black1} />
-          <Ionicons name="search-outline" size={32} color={colors.black1} />
+          <Ionicons
+            name="search-outline"
+            size={32}
+            color={colors.black1}
+            onPress={() => {
+              navigation.navigate('search');
+            }}
+          />
           <MaterialCommunityIcons
             name="account-circle"
             size={32}
