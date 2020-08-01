@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React ,{useEffect}from 'react';
+import SplashScreen from 'react-native-splash-screen'
 import { Provider, useSelector } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers';
@@ -96,6 +97,9 @@ export function Navigation() {
 // eslint-disable-next-line react/display-name
 // eslint-disable-next-line no-undef
 export default App = () => {
+  useEffect(()=>{
+    SplashScreen.hide();
+  },[])
   return (
     <Provider store={store}>
       <Navigation />
