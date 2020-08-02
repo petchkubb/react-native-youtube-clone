@@ -64,12 +64,15 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    elevation: 4,
     shadowOffset: {
       height: 4,
     },
     shadowColor: 'black',
     shadowOpacity: 0.3,
+    position:'absolute',
+    top:0,
+    left:0,
+    right:0,
   },
   backContainer: {
     flexDirection: 'row',

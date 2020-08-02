@@ -83,7 +83,7 @@ export function Navigation() {
   return (
     <Provider store={store}>
       <NavigationContainer
-        theme={currentTheme ? customDarkTheme : customDefaultTheme}>
+        theme={currentTheme ? customDefaultTheme : customDarkTheme}>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="rootHome" component={RootHome} />
           <Stack.Screen name="search" component={Search} />
